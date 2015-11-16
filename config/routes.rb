@@ -1,15 +1,16 @@
 Rails.application.routes.draw do
   devise_for :users
-    devise_scope :user do 
-     root 'devise/sessions#new'
-    end 
- 
 
+  devise_scope :user do 
+     root 'devise/sessions#new'
+     
+  end 
+ 
   resources :routines do 
     resources :exercises
   end 
+get '/routines'=> 'routines#index'
 
-  
 end
 
 
