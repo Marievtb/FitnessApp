@@ -1,3 +1,15 @@
-<h1 id="header"> This is working???</h1>
+<!-- <h1 id="header"> This is working???</h1> -->
+<h1 id = "header"> Routinely </h1>
+<p id = "tagline"> keeping tabs on your progress <p>
+
+<% @routines.each do |r|%>
+<ul>
+	<%= r.routine_name %>
+	<%=link_to "View Routine", routine_exercises_path(routine.id)%>
+	<%= link_to "Delete Routine", routine, :method => 'delete' %>
+</ul>
+
+
+<%end%>
 
 

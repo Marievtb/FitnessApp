@@ -5,12 +5,14 @@ class RoutinesController < ApplicationController
 	end 
 
 	def create
+
 	end 
 
 	def edit
 	end 
 
 	def new
+		@routine = Routine.new
 	end 
 
 	def show

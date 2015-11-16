@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   end 
 get '/routines'=> 'routines#index'
 
+get '/routines/:routine_id/exercises'=> 'exercises#index'
+
 end
 
 

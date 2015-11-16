@@ -10,8 +10,7 @@
 	<header>
 <p class="navbar-text pull-right">
 <% if user_signed_in? %>
-<!--   Logged in as <strong><%= current_user.email %></strong>. -->
-
+ Logged in as <%= current_user.email %> |
   <%= link_to 'Make New Routine', new_routine_path, :class => 'navbar-link' %> |
   <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
 <% else %>
@@ -20,8 +19,8 @@
 <% end %>
   
 	</header>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+<p class="notice"> <%=notice%> </p>
+<p class="alert"> <%=alert%> </p>
 <%= yield %>
 
 </body>
