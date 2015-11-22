@@ -5,7 +5,13 @@ class ExercisesController < ApplicationController
 	end 
 
 	def create
-
+		@routine = Routine.find(params[:routine_id])
+		@routine_exercise = Exercise.new(exercise_params) 
+		if @routine_exercise.save 
+			redirect_to routine_exercise_path(id: @routine_exercise.id)
+		else 
+			render :new
+		end 
 	end 
 
 	def edit
@@ -13,11 +19,12 @@ class ExercisesController < ApplicationController
 
 	def new
 		@routine = Routine.find(params[:routine_id])
-		@routine_exercise = Exercise.new 
+		@routine_exercise = Exercise.new(exercise_params)
 	end 
 
 	def show
-		@routine_exercise= Exercise.find(params[:id])
+		@routine_exercise = Exercise.find(params[:id])
+
 	end 
 
 	def update
@@ -27,7 +34,7 @@ class ExercisesController < ApplicationController
 	end 
 
 	# =============Privee ====================
-		def return_exercise
+	def return_exercise
 		@routine_exercise = Exercise.find(params[:id])
 	end 
 
@@ -35,10 +42,7 @@ class ExercisesController < ApplicationController
 		params.require(:exercise).permit(:exercise_name, :description, :duration)
 	end 
 
-
-
 end
-
 
 
 # ========Routes==========
@@ -51,3 +55,9 @@ end
 #                          PATCH  /routines/:routine_id/exercises/:id(.:format)      exercises#update
 #                          PUT    /routines/:routine_id/exercises/:id(.:format)      exercises#update
 #                          DELETE /routines/:routine_id/exercises/:id(.:format)      exercises#destroy
+
+
+
+
+
+

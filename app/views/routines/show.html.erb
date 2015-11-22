@@ -1,5 +1,14 @@
-<!-- show.html.erb -->
-<%= @routine.routine_name %>
+<h3> routnie SHOW BTW </h3>
+
+
+<%= @routine_exercise.routine_name %>
 <br>
+<% @routine_exercise.each do |i| %>
+<ul>
+<%= i.exercise_name %> 
+<%= i.description %> 
+<%= i.duration %>
+</ul>
 <%= link_to "Add Exercise", new_routine_exercise_path(@routine) %>
+<% end %>
 <br>

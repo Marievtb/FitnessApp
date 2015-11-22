@@ -1,0 +1,12 @@
+<!-- exercise show  -->
+
+<!-- the id is :
+<%= @routine_exercise.id %> -->
+<br>
+<%= @routine_exercise.exercise_name %>
+
+<ul>
+description: <%= @routine_exercise.description %> |
+duration: <%= @routine_exercise.duration %>
+</ul>
+<%= link_to "Add Exercise", new_routine_exercise_path(@routine_exercise) %>
