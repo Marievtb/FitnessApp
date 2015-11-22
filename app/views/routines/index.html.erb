@@ -5,11 +5,13 @@
 <% @routines.each do |r|%>
 <ul>
 	<%= r.routine_name %>
-	<%=link_to "View Routine", routine_exercises_path(routine.id)%>
-	<%= link_to "Delete Routine", routine, :method => 'delete' %>
+	<%= link_to "View Routine", routine_path(r) %>
+	<%= link_to "Delete Routine", routine_path(r) , method: :delete %>
+
+
 </ul>
 
 
-<%end%>
+<% end %>
 
 
