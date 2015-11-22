@@ -1,19 +1,23 @@
 class ExercisesController < ApplicationController
 
 	def index
-		@exercises = Exercise.all 
+		@routine_exercises = Exercise.all 
 	end 
 
 	def create
+
 	end 
 
 	def edit
 	end 
 
 	def new
+		@routine = Routine.find(params[:routine_id])
+		@routine_exercise = Exercise.new 
 	end 
 
 	def show
+		@routine_exercise= Exercise.find(params[:id])
 	end 
 
 	def update
@@ -22,4 +26,28 @@ class ExercisesController < ApplicationController
 	def destroy
 	end 
 
+	# =============Privee ====================
+		def return_exercise
+		@routine_exercise = Exercise.find(params[:id])
+	end 
+
+	def exercise_params
+		params.require(:exercise).permit(:exercise_name, :description, :duration)
+	end 
+
+
+
 end
+
+
+
+# ========Routes==========
+
+#        routine_exercises GET    /routines/:routine_id/exercises(.:format)          exercises#index
+#                          POST   /routines/:routine_id/exercises(.:format)          exercises#create
+#     new_routine_exercise GET    /routines/:routine_id/exercises/new(.:format)      exercises#new
+#    edit_routine_exercise GET    /routines/:routine_id/exercises/:id/edit(.:format) exercises#edit
+#         routine_exercise GET    /routines/:routine_id/exercises/:id(.:format)      exercises#show
+#                          PATCH  /routines/:routine_id/exercises/:id(.:format)      exercises#update
+#                          PUT    /routines/:routine_id/exercises/:id(.:format)      exercises#update
+#                          DELETE /routines/:routine_id/exercises/:id(.:format)      exercises#destroy
