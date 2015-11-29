@@ -33,16 +33,19 @@ class ExercisesController < ApplicationController
 	def destroy
 	end 
 
-	# =============Privee ====================
+private
+
 	def return_exercise
 		@routine_exercise = Exercise.find(params[:id])
 	end 
 
 	def exercise_params
-		params.require(:exercise).permit(:exercise_name, :description, :duration)
+		params.require(:exercise[params:id]).permit(:exercise_name, :description, :duration)
 	end 
 
-end
+end 
+
+
 
 
 # ========Routes==========

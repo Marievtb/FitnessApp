@@ -10,7 +10,6 @@ Rails.application.routes.draw do
     resources :exercises
   end 
 # get '/routines'=> 'routines#index'
-
 # get '/routines/:routine_id/exercises'=> 'exercises#index'
 
 end
