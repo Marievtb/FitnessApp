@@ -40,7 +40,7 @@ private
 	end 
 
 	def exercise_params
-		params.require(:exercise[params:id]).permit(:exercise_name, :description, :duration)
+		params.require(:exercise).permit(:exercise_name, :description, :duration)
 	end 
 
 end 
